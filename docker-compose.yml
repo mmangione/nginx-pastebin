@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_pastebin
+    volumes:
+      - ./nginx-site.conf:/etc/nginx/nginx.conf
+      - ./assets/:/var/www/nginx-pastebin/
+      - .index.html:/var/www/nginx-pastebin/index.html
+    ports:
+      - 800:80
+      - 4430::443
